@@ -1,0 +1,231 @@
+:root {
+  --primary-grey: #706e6d;
+  --primary-red: #E5625E;
+  --primary-green: #849993;
+  --dark-green: #243010;
+  --primary-purple: #1F0812;
+  --light-grey: #ADADAD;
+  --sepia: #794416;
+  --light-sepia: #9b581c;
+  --charcoal: #3f3b3b;
+  --raisen-black: #252323;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+.grid-4 {
+  display: grid;
+  grid-template-columns: .75fr .5fr .75fr .75fr 1fr;
+}
+
+.location-list {
+  border-radius: 20px;
+}
+.admin-location-details {
+  border-top: solid var(--charcoal) 1px;
+  padding: 15px;
+  margin: 15px;
+}
+.admin-delete-check {
+  padding-left: 15px;
+}
+.delete-location-btn {
+  background-color: var(--primary-red);
+}
+.location-distance {
+  border: 3px solid rgba(0, 0, 0, .1);
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+.open-times {
+  width: 50px;
+}
+
+.tm-portfolio-name {
+  color: white;
+  background-color: var(--charcoal);
+}
+
+.fa-times {
+  color: red;
+}
+.fa-check {
+  color: green;
+}
+.address {
+  font-size: 30px;
+}
+.services {
+  font-size: 25px;
+  white-space: nowrap;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  color: white;
+}
+.warning {
+  margin-top: 45px;
+  background-color: yellow;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.about h1 {
+  font-size: 3rem;
+  padding-top: 70px;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-bottom: 25px;
+}
+.about h2 {
+  font-size: 2rem;
+  padding-bottom: 70px;
+}
+.about p {
+  padding: 25px;
+  font-size: 1.25rem;
+}
+
+#mapid {
+  height: 600px;
+  border: 2px solid var(--charcoal);
+  border-radius: 20px;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+.card {
+  height: 300px;
+  width: 300px;
+}
+.details {
+  margin-top: 30px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  background-color: var(--charcoal);
+  color: white;
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+}
+.details-name {
+  font-size: 2.5rem;
+  padding: 30px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.details-info {
+  padding: 30px;
+}
+.location-details {
+  padding: 15px;
+  font-size: 1rem;
+}
+.background-color {
+  background-color: var(--light-grey);
+}
+.box-shadow {
+  box-shadow: 15px 15px 15px rgba(0, 0, 0, .1);
+}
+
+.add-location input {
+  width: 125%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.logout-button {
+  margin-top: 30px;
+  background-color: var(--sepia);
+}
+
+
+/* I modified the checkboxes from here
+https://www.w3docs.com/tools/code-editor/5120
+/Hiding the initial checkbox */
+
+.main {
+  display: block;
+  position: relative;
+  padding-left: 45px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+input[type=checkbox] {
+  visibility: hidden;
+}
+/* Creating a custom checkbox based on demand */
+.w3docs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: black;
+}
+/* Specify the background color to be shown when hovering over checkbox */
+.main:hover input ~ .w3docs {
+  background-color: gray;
+}
+/* Specify the background color to be shown when checkbox is active */
+.main input:active ~ .w3docs {
+  background-color: white;
+}
+/* Specify the background color to be shown when checkbox is checked */
+.main input:checked ~ .w3docs {
+  background-color: var(--sepia);
+}
+/* Checkmark to be shown in checkbox */
+/* It is not be shown when not checked */
+.w3docs:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+/* Display checkmark when checked */
+.main input:checked ~ .w3docs:after {
+  display: block;
+}
+/* Styling the checkmark using webkit */
+/* Rotated the rectangle by 45 degree and 
+showing only two border to make it look
+like a tickmark */
+.main .w3docs:after {
+  left: 8px;
+  bottom: 5px;
+  width: 10px;
+  height: 18px;
+  border: solid white;
+  border-width: 0 4px 4px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+@media (max-width: 800px) {
+  .details {
+    display: grid;
+    grid-template-columns: .75fr 2fr;
+  }
+  .details-name {
+    font-size: 2rem;
+    padding: 15px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .details-info {
+    padding: 15px;
+  }
+  .address {
+    font-size: 23px;
+  }
+  .services {
+    font-size: 20px;
+  }
+}

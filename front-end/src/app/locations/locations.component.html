@@ -1,0 +1,20 @@
+
+
+<section *ngFor="let location of locations">
+  <div class="container-fluid location-list box-shadow">
+    <div class="location-item col-12 row">
+      <div class="location-name location-list">
+        <a routerLink="/location/{{location._id}}">{{ location.name }}</a>
+      </div>
+      <div class="location-description">
+        <div ngPreserveWhitespaces class="mb-0">
+          <p class="address">{{ location.address }}</p>
+          
+          <!-- <span class="services"><fa-icon [icon]="doorOpen"></fa-icon>  Open &ensp; <fa-icon [icon]="doorClosed"></fa-icon>  Closed</span> -->
+            <span class="services" style="white-space: break-spaces;">{{ location.openTimes | openTimes }}</span>
+        </div>
+        <div class="float-left location-distance">{{ location.distance | distance }} away</div>
+      </div>
+    </div>
+  </div>
+</section>

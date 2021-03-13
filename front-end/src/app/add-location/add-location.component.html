@@ -1,0 +1,253 @@
+
+<div class="container add-location grid-2">
+  <div class="col-12">
+    <form
+      action="index.html"
+      method="POST"
+      id="tmContactForm"
+      class="tm-bg-white-transparent"
+      (ngSubmit)="postLocation()"
+    >
+      <div class="form-group">
+        <input
+          type="text"
+          id="location-name"
+          name="location-name"
+          class="form-control rounded-0 border-top-0 border-right-0 border-left-0"
+          placeholder="location name"
+          required
+          [(ngModel)]="location.name"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          id="location-address"
+          name="location-address"
+          class="form-control rounded-0 border-top-0 border-right-0 border-left-0"
+          placeholder="address"
+          required
+          [(ngModel)]="location.address"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          id="location-lat"
+          name="location-lat"
+          class="form-control rounded-0 border-top-0 border-right-0 border-left-0"
+          placeholder="latitude (ie 38.94)"
+          required
+          [(ngModel)]="location.lat"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          id="location-lng"
+          name="location-lng"
+          class="form-control rounded-0 border-top-0 border-right-0 border-left-0"
+          placeholder="longitude (ie -94.38)"
+          required
+          [(ngModel)]="location.lng"
+        />
+      </div>
+      <!-- The opening and closing time for each day -->
+      <div class="grid-4">
+        <p>Sunday</p>
+        <div class="form-group open-times">
+          <input type="text" id="open" name="open"
+            class="form-control rounded-0 border-top-0 border-right-0 border-left-0"
+            placeholder="open" required [(ngModel)]="location.sunOpen"/>
+        </div>        
+        <div class="form-group open-times">
+          <input ype="text" id="close" name="close"
+            class="form-control rounded-0 border-top-0 border-right-0 border-left-0"
+            placeholder="close" required [(ngModel)]="location.sunClose"
+          />
+        </div>
+        <div class="form-group">
+          <label class="main">closed<input type="checkbox" id="sunClosed"
+            name="sunClosed" [(ngModel)]="closed.sunday">
+            <span class="w3docs"></span></label>
+          </div>
+          <div class="form-group">
+            <label class="main">open all day<input type="checkbox" id="closed"
+              name="closed" [(ngModel)]="open.sunday">
+              <span class="w3docs"></span></label>
+          </div>
+      </div>
+
+      <div class="grid-4">
+        <p>Monday</p>
+        <div class="form-group open-times">
+          <input type="text" id="open" name="open"
+            class="form-control rounded-0 border-top-0 border-right-0 border-left-0"
+            placeholder="open" required [(ngModel)]="location.monOpen"/>
+        </div>        
+        <div class="form-group open-times">
+          <input ype="text" id="close" name="close"
+            class="form-control rounded-0 border-top-0 border-right-0 border-left-0"
+            placeholder="close" required [(ngModel)]="location.monClose"
+          />
+        </div>
+        <div class="form-group">
+          <label class="main">closed<input type="checkbox" id="monClosed"
+            name="monClosed" [(ngModel)]="closed.monday">
+            <span class="w3docs"></span></label>
+        </div>
+        <div class="form-group">
+          <label class="main">open all day<input type="checkbox" id="closed"
+            name="closed" [(ngModel)]="open.monday">
+            <span class="w3docs"></span></label>
+        </div>
+      </div>
+
+      <div class="grid-4">
+        <p>Tuesday</p>
+        <div class="form-group open-times">
+          <input type="text" id="open" name="open"
+            class="form-control rounded-0 border-top-0 border-right-0 border-left-0"
+            placeholder="open" required [(ngModel)]="location.tueOpen"/>
+        </div>        
+        <div class="form-group open-times">
+          <input ype="text" id="close" name="close"
+            class="form-control rounded-0 border-top-0 border-right-0 border-left-0"
+            placeholder="close" required [(ngModel)]="location.tueClose"
+          />
+        </div>
+        <div class="form-group">
+          <label class="main">closed<input type="checkbox" id="closed"
+            name="closed" [(ngModel)]="closed.tuesday">
+            <span class="w3docs"></span></label>
+        </div>
+        <div class="form-group">
+          <label class="main">open all day<input type="checkbox" id="closed"
+            name="closed" [(ngModel)]="open.tuesday">
+            <span class="w3docs"></span></label>
+        </div>
+      </div>
+
+      <div class="grid-4">
+        <p>Wednesday</p>
+        <div class="form-group open-times">
+          <input type="text" id="open" name="open"
+            class="form-control rounded-0 border-top-0 border-right-0 border-left-0"
+            placeholder="open" required [(ngModel)]="location.wedOpen"/>
+        </div>        
+        <div class="form-group open-times">
+          <input ype="text" id="close" name="close"
+            class="form-control rounded-0 border-top-0 border-right-0 border-left-0"
+            placeholder="close" required [(ngModel)]="location.wedClose"
+          />
+        </div>
+        <div class="form-group">
+          <label class="main">closed<input type="checkbox" id="closed"
+            name="closed" [(ngModel)]="closed.wednesday">
+            <span class="w3docs"></span></label>
+        </div>
+        <div class="form-group">
+          <label class="main">open all day<input type="checkbox" id="closed"
+            name="closed" [(ngModel)]="open.wednesday">
+            <span class="w3docs"></span></label>
+        </div>
+      </div>
+
+      <div class="grid-4">
+        <p>Thursday</p>
+        <div class="form-group open-times">
+          <input type="text" id="open" name="open"
+            class="form-control rounded-0 border-top-0 border-right-0 border-left-0"
+            placeholder="open" required [(ngModel)]="location.thuOpen"/>
+        </div>        
+        <div class="form-group open-times">
+          <input ype="text" id="close" name="close"
+            class="form-control rounded-0 border-top-0 border-right-0 border-left-0"
+            placeholder="close" required [(ngModel)]="location.thuClose"
+          />
+        </div>
+        <div class="form-group">
+          <label class="main">closed<input type="checkbox" id="closed"
+            name="closed" [(ngModel)]="closed.thursday">
+            <span class="w3docs"></span></label>
+        </div>
+        <div class="form-group">
+          <label class="main">open all day<input type="checkbox" id="closed"
+            name="closed" [(ngModel)]="open.thursday">
+            <span class="w3docs"></span></label>
+        </div>
+      </div>
+
+      <div class="grid-4">
+        <p>Friday</p>
+        <div class="form-group open-times">
+          <input type="text" id="open" name="open"
+            class="form-control rounded-0 border-top-0 border-right-0 border-left-0"
+            placeholder="open" required [(ngModel)]="location.friOpen"/>
+        </div>        
+        <div class="form-group open-times">
+          <input ype="text" id="close" name="close"
+            class="form-control rounded-0 border-top-0 border-right-0 border-left-0"
+            placeholder="close" required [(ngModel)]="location.friClose"
+          />
+        </div>
+        <div class="form-group">
+          <label class="main">closed<input type="checkbox" id="closed"
+            name="closed" [(ngModel)]="closed.friday">
+            <span class="w3docs"></span></label>
+        </div>
+        <div class="form-group">
+          <label class="main">open all day<input type="checkbox" id="closed"
+            name="closed" [(ngModel)]="open.friday">
+            <span class="w3docs"></span></label>
+        </div>
+      </div>
+
+      <div class="grid-4">
+        <p>Saturday</p>
+        <div class="form-group open-times">
+          <input type="text" id="open" name="open"
+            class="form-control rounded-0 border-top-0 border-right-0 border-left-0"
+            placeholder="open" required [(ngModel)]="location.satOpen"/>
+        </div>        
+        <div class="form-group open-times">
+          <input ype="text" id="close" name="close"
+            class="form-control rounded-0 border-top-0 border-right-0 border-left-0"
+            placeholder="close" required [(ngModel)]="location.satClose"
+          />
+        </div>
+        <div class="form-group">
+          <label class="main">closed<input type="checkbox" id="closed"
+            name="closed" [(ngModel)]="closed.saturday">
+            <span class="w3docs"></span></label>
+        </div>
+        <div class="form-group">
+          <label class="main">open all day<input type="checkbox" id="closed"
+            name="closed" [(ngModel)]="open.saturday">
+            <span class="w3docs"></span></label>
+        </div>
+      </div>
+
+
+
+
+      <div class="text-center">
+        <button
+          type="submit"
+          class="btn tm-btn-submit rounded-0 text-white"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+  <div>
+    <button
+          type="submit"
+          class="btn tm-btn-submit rounded-0 text-white"
+          (click)="backToLocationList()"
+        >
+          Return To Location List
+        </button>
+  </div>
+</div>
