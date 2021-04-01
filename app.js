@@ -13,7 +13,7 @@ require('./app_api/config/passport');
 
 var app = express();
 
-app.use('/*', (req, res, next) => {
+app.use('/api', (req, res, next) => {
     console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
     // Website you wish to allow to connect
