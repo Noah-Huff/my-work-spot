@@ -4,29 +4,45 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const cors = require('cors');
+var cors = require('cors');
 
 require('./app_api/models/db');
 
-//these are for user login
-
-//commented out for production
-//var indexRouter = require('./routes/index');
-//var usersRouter = require('./routes/users');
 const apiRouter = require('./app_api/routes/index');
 const passport = require('passport');
 require('./app_api/config/passport');
 
 var app = express();
-
 app.use(cors());
-app.options('*', cors());
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
 
-//app.use(cors("*"));
+console.log("!!!!!!!!!!!!!!!!!!!!!^^^^^^^^^^^^^^^^^^^^^^^^^^!!!!!!!!!!!!!!!!!!!!!");
+
+
+app.use('/*', (req, res, next) => {
+  console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+  // Website you wish to allow to connect
+  res.setHeader('Access-Control-Allow-Origin', '*');
+
+  // Request methods you wish to allow
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+  // Request headers you wish to allow
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,Content-type,Origin,Accept,x-client-key,x-client-token,x-client-secret,Authorization');
+
+  // Set to true if you need the website to include cookies in the requests sent
+  // to the API (e.g. in case you use sessions)
+  res.setHeader('Access-Control-Allow-Credentials', true);
+
+  // Pass to next layer of middleware
+  next();
+});
+
+
+//app.set('views', path.join(__dirname, 'views'));
+//app.set('view engine', 'pug');
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -35,36 +51,26 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'front-end', 'build')));
 
 
-app.use('/api', (req, res, next) => {
-  //res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
-  res.header('Access-Control-Allow-Origin', '*');
-  //res.header('Access-Control-Allow-Origin', 'https://enigmatic-castle-68214.herokuapp.com');
-  //res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
-});
 
-//app.use('/', indexRouter);
-//app.use('/users', usersRouter);
 app.use('/api', apiRouter);
-app.get( '/admin/login' , function(req, res, next) {
+app.get('/admin/login', function (req, res, next) {
   res.sendFile(path.join(__dirname, 'front-end', 'build', 'index.html'));
 });
-app.get( '/admin/location' , function(req, res, next) {
+app.get('/admin/location', function (req, res, next) {
   res.sendFile(path.join(__dirname, 'front-end', 'build', 'index.html'));
 });
-app.get( '/admin/location/add' , function(req, res, next) {
+app.get('/admin/location/add', function (req, res, next) {
   res.sendFile(path.join(__dirname, 'front-end', 'build', 'index.html'));
 });
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
+  console.log("CALLING A 404 ERROR");
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

@@ -14,6 +14,11 @@
   display: grid;
   grid-template-columns: 3fr 1fr;
 }
+.grid-4 {
+  display: grid;
+  grid-template-columns: .75fr .5fr .75fr .75fr 1fr;
+}
+
 .location-list {
   border-radius: 20px;
 }
@@ -33,6 +38,9 @@
   padding: 10px;
   border-radius: 5px;
   margin-top: 15px;
+}
+.open-times {
+  width: 50px;
 }
 
 .tm-portfolio-name {
@@ -171,7 +179,7 @@ input[type=checkbox] {
 }
 /* Specify the background color to be shown when checkbox is checked */
 .main input:checked ~ .w3docs {
-  background-color: var(--primary-red);
+  background-color: var(--sepia);
 }
 /* Checkmark to be shown in checkbox */
 /* It is not be shown when not checked */

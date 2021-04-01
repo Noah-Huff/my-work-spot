@@ -1,3 +1,4 @@
+import { ShimReferenceTagger } from '@angular/compiler-cli/src/ngtsc/shims';
 import { Pipe, PipeTransform } from '@angular/core';
 import { OpenTimes } from './location';
 
@@ -30,6 +31,13 @@ export class OpenTimesPipe implements PipeTransform {
             console.log("ELSE --------------- ", j);
           }
         }
+        if ( j < o.length && o[0].open == o[o.length-1].open && o[0].close == o[o.length-1].close ) {
+          sameTime = j;
+          for ( let i = o.length; i > 0; i-- ) {
+            //put logic for if sunday and saturday have the same opening times
+            
+          }
+        }
         if ( o[sameTimeEnd].open == 0 ) {
           t += days[sameTime] + " - " + days[sameTimeEnd] + ": Closed" + "\n";
         } else if ( o[sameTimeEnd].close == 24 ) {
@@ -39,7 +47,6 @@ export class OpenTimesPipe implements PipeTransform {
         }
       } 
       t += days[j] + ": Open " + o[j].open + " to " + o[j].close + "\n";
-
     }
     /*
     for ( let i = 0; i < o.length; i++ ) {
