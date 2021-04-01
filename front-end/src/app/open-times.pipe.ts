@@ -16,10 +16,16 @@ export class OpenTimesPipe implements PipeTransform {
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
                 "Friday", "Saturday"];
 
+
+
+
+    // this algorithms halfway works, but is still broken :(
+    /* 
     for ( let j = 0; j < o.length; j++ ) {
       let sameTime = 0;
       let sameTimeEnd = 0;
       if ( j < o.length && o[j].open == o[j+1].open && o[j].close == o[j+1].close ) {
+        //get the first day that has same open/close times
         sameTime = j;
         for ( let k = j; k < o.length; k++ ) {
           if ( o[sameTime].open == o[k].open && o[sameTime].close == o[k].close ) {
@@ -48,7 +54,13 @@ export class OpenTimesPipe implements PipeTransform {
       } 
       t += days[j] + ": Open " + o[j].open + " to " + o[j].close + "\n";
     }
-    /*
+
+    */
+
+
+
+
+    
     for ( let i = 0; i < o.length; i++ ) {
       if ( o[i].open == 0 ) {
         t += days[i] + `: Closed\nMonday`;
@@ -73,7 +85,7 @@ export class OpenTimesPipe implements PipeTransform {
         }
       }
     }
-    */
+    
     console.log('OPEN TIMES', o);
 
     return t;

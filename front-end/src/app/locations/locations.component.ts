@@ -36,8 +36,8 @@ export class LocationsComponent implements OnInit {
         {
           this.message = foundLocations.length > 0 ? '' : 'No locations found';
           this.locations = foundLocations;
-          console.log(this.locations);
-          console.log("FRIDAY", this.locations[0].openTimes.fri);
+          console.log("THIS LOCATION", this.locations);
+          console.log("FRIDAY", this.locations[2].openTimes.fri);
         });
     }
 
