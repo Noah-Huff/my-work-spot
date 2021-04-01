@@ -57,10 +57,10 @@ const locationsListByDistance = async (req, res) => {
                         .status(404)
                         .json(err);
                 } else {
-                    console.log('PRINT RESULTS', results);
+                    //console.log('PRINT RESULTS', results);
                     locations = _buildLocationList(req, res, results, stats);
-                    console.log('Geo results', results);
-                    console.log('Geo stats', stats);
+                    //console.log('Geo results', results);
+                    //console.log('Geo stats', stats);
                     res.status(200).json(locations);
 
                 }
