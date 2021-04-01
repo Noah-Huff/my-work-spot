@@ -63,24 +63,24 @@ export class OpenTimesPipe implements PipeTransform {
     
     for ( let i = 0; i < o.length; i++ ) {
       if ( o[i].open == 0 ) {
-        t += days[i] + `: Closed\nMonday`;
+        t += days[i] + `: Closed\n`;
       } else if ( o[i].open == 24 ) {
         t += days[i] + `: Open All Day\n`;
       } else {
         switch (i) {
-          case 0: t += days[i] + `: Open ` + openTimes.sun.open + `AM Close ` + openTimes.sun.open + `PM`;
+          case 0: t += days[i] + `: Open ` + openTimes.sun.open + `AM Close ` + openTimes.sun.open + `PM\n`;
           break ;
-          case 1: t += days[i] + `: Open ` + openTimes.mon.open + `AM Close ` + openTimes.mon.open + `PM`;;
+          case 1: t += days[i] + `: Open ` + openTimes.mon.open + `AM Close ` + openTimes.mon.open + `PM\n`;;
           break ;
-          case 2: t += days[i] + `: Open ` + openTimes.tue.open + `AM Close ` + openTimes.tue.open + `PM`;;
+          case 2: t += days[i] + `: Open ` + openTimes.tue.open + `AM Close ` + openTimes.tue.open + `PM\n`;;
           break ;
-          case 3: t += days[i] + `: Open ` + openTimes.wed.open + `AM Close ` + openTimes.wed.open + `PM`;;
+          case 3: t += days[i] + `: Open ` + openTimes.wed.open + `AM Close ` + openTimes.wed.open + `PM\n`;;
           break ;
-          case 4: t += days[i] + `: Open ` + openTimes.thu.open + `AM Close ` + openTimes.thu.open + `PM`;;
+          case 4: t += days[i] + `: Open ` + openTimes.thu.open + `AM Close ` + openTimes.thu.open + `PM\n`;;
           break ;
-          case 5: t += days[i] + `: Open ` + openTimes.fri.open + `AM Close ` + openTimes.fri.open + `PM`;;
+          case 5: t += days[i] + `: Open ` + openTimes.fri.open + `AM Close ` + openTimes.fri.open + `PM\n`;;
           break ;
-          case 6: t += days[i] + `: Open ` + openTimes.sat.open + `AM Close ` + openTimes.sat.open + `PM`;;
+          case 6: t += days[i] + `: Open ` + openTimes.sat.open + `AM Close ` + openTimes.sat.open + `PM\n`;;
           break ;
         }
       }
